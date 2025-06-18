@@ -1,0 +1,495 @@
+/* Base styles for body */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000000;
+    /* ✅ Ensure entire background is black */
+}
+
+
+.sidebar {
+    position: fixed;
+    top: 135px;
+    /* below the topbar */
+    left: 0;
+    width: 180px;
+    background-color: #232402;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    display: none;
+    /* default hidden */
+    flex-direction: column;
+    z-index: 999;
+    /* below topbar */
+}
+
+
+/* Style sidebar links */
+.sidebar a {
+    padding: 10px;
+    /* 🛠️ FIXED: Replaced invalid comma-separated padding */
+    text-decoration: none;
+    font-size: 20px;
+    color: #f1f1f1;
+    display: block;
+    width: 100%;
+    /* 🛠️ Fix: Make links take full width */
+    box-sizing: border-box;
+}
+
+.sidebar a:hover {
+    color: #f1f1f1;
+}
+
+/* Main content styles */
+.main {
+    flex: 1;
+    padding: 20px;
+    background-color: #000000;
+    overflow-y: auto;
+    /* 🛠️ Optional: Allow scrolling if content overflows */
+}
+
+/* Container that holds all preview boxes */
+.preview-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    /* ⬅ Aligns items to the left */
+    gap: 20px;
+    /* Adds spacing between boxes */
+    padding: 10px;
+}
+
+.preview-box {
+    width: 200px;
+    height: 350px;
+    /* Let content below image expand naturally */
+    background-color: #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 10px;
+    flex-shrink: 0;
+}
+
+/* This ensures the image fits in a 200x200 square */
+.poster-img {
+    width: 300px;
+    height: 320px;
+    display: block;
+
+}
+
+.preview-box {
+    width: 45vw;
+    /* 45% of screen width */
+    max-width: 200px;
+    margin: 10px;
+}
+
+.poster-img {
+    width: 100%;
+    height: 80vw;
+    max-height: 241px;
+}
+
+.preview-desc {
+    font-size: 14px;
+    color: #000000;
+    padding: 0 10px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.preview-box a:hover {
+    text-decoration: none;
+    color: #111184;
+}
+
+/* Font-styled heading or message */
+.fon {
+    color: green;
+    text-align: center;
+    font-weight: bold;
+    width: 70%;
+    margin: 10px auto;
+}
+
+/* 🟦 Top Bar Styles */
+.topbar {
+    height: 145px;
+    background-color: #C4A484;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* 🟩 Hamburger/Menu Button */
+.menu-btn {
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+/* 🟨 Center Heading and Text in Topbar */
+.topbar-content {
+    text-align: center;
+    flex: 1;
+}
+
+.topbar-content h1 {
+    margin: 8px;
+    font-size: 19px;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin: 3px;
+}
+
+.search-bar {
+    width: 40%;
+    max-width: 400px;
+    padding: 10px 20px;
+    border-radius: 600px;
+    /* 🟢 Makes it round */
+    border: 1px solid #ccc;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.search-bar:focus {
+    border-color: #00ccff;
+    box-shadow: 0 0 5px #00ccff;
+}
+
+
+.main {
+    margin-top: 120px;
+    /* match topbar height */
+    padding: 20px;
+    background-color: #000000
+}
+
+.centered-input {
+    display: block;
+    /* Makes it behave like a block element */
+    margin: 50px auto;
+    /* Top-bottom margin, and center horizontally */
+    padding: 12px 20px;
+    /* Inner spacing (top/bottom, left/right) */
+    width: 60%;
+    /* Adjust as needed */
+    max-width: 400px;
+    /* Keep it from getting too big */
+    border: 1px solid #ccc;
+    /* Light gray border */
+    border-radius: 25px;
+    /* 🔵 This makes the corners rounded */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    /* Optional soft shadow */
+    font-size: 16px;
+    /* Comfortable text size */
+    outline: none;
+    /* Remove blue glow when clicked */
+}
+
+.centered-input:focus {
+    border-color: #007BFF;
+    /* Blue border on focus */
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+}
+
+.centered-button {
+    display: block;
+    /* Make it take a block space */
+    margin: 20px auto;
+    /* Center horizontally with some vertical space */
+    padding: 12px 24px;
+    /* Nice padding for a modern look */
+    background-color: #007BFF;
+    /* Bootstrap-style blue */
+    color: white;
+    /* White text */
+    border: none;
+    /* No default border */
+    border-radius: 25px;
+    /* 🔵 Rounded corners */
+    font-size: 16px;
+    /* Comfortable text size */
+    cursor: pointer;
+    /* Pointer cursor on hover */
+    transition: background-color 0.3s ease;
+    /* Smooth hover effect */
+}
+
+.centered-button:hover {
+    background-color: #0056b3;
+    /* Darker blue on hover */
+}
+
+
+.profile-container_2 {
+    display: flex;
+    padding: 20px;
+    max-width: 100%px;
+    margin: auto;
+}
+
+.sidebar_2 {
+    width: 250px;
+    background: grey;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin-right: 20px;
+    text-align: center;
+}
+
+.avatar {
+    width: 150px;
+    /* or whatever size you want */
+    height: 150px;
+    border-radius: 50%;
+    /* This makes it a perfect circle */
+    object-fit: cover;
+    /* Ensures the image doesn't look squished */
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /* Centers it horizontally */
+    box-shadow: 0 0 5px #ccc;
+    /* Optional: subtle shadow */
+}
+
+.main-content_2 {
+    flex: 1;
+    background: #3b3b3b;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.upload-list {
+    list-style: none;
+    padding: 0;
+}
+
+.upload-item {
+    border-bottom: 1px solid #ddd;
+    padding: 2px 0;
+}
+
+.edit-btn {
+    margin-top: 15px;
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit-section {
+    display: none;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.edit-section.visible {
+    display: block;
+}
+
+.edit-section input {
+    width: 100%;
+    padding: 6px;
+    margin: 8px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.upload-form {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.custom-file-upload {
+    display: inline-block;
+    padding: 8px 10px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.upload-form input[type="file"] {
+    display: none;
+}
+
+.upload-form button {
+    margin-left: 10px;
+    padding: 8px 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.upload-button {
+    position: absolute;
+    right: 0;
+    top: 10px;
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.upload-button:hover {
+    background-color: #218838;
+}
+
+.upload-form-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.upload-form-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.upload-form-container label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #444;
+}
+
+.upload-form-container textarea,
+.upload-form-container input[type="text"],
+.upload-form-container input[type="url"],
+.upload-form-container input[type="date"],
+.upload-form-container input[type="file"] {
+    display: block;
+    margin: 10px auto 25px auto;
+    padding: 12px 20px;
+    width: 80%;
+    max-width: 500px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+    font-size: 16px;
+    outline: none;
+}
+
+.upload-form-container textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.upload-form-container input:focus,
+.upload-form-container textarea:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+}
+
+.upload-form-container button {
+    display: block;
+    margin: 0 auto;
+    padding: 12px 24px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.upload-form-container button:hover {
+    background-color: #0056b3;
+}
+
+/* Hide the default file input completely */
+.custom-upload-wrapper input[type="file"] {
+    display: none;
+}
+
+.movie-detail {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.col {
+    color: #ffffff;
+}
+
+.movie-description {
+    flex: 1;
+    /* Take remaining space */
+    color: #fffff0;
+    font-size: 16px;
+}
+
+.movie-container {
+    display: flex;
+    align-items: flex-start;
+    /* Align content to the top */
+    gap: 20px;
+    /* Space between poster and text */
+    padding: 20px;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+/* Responsive design for smaller heights */
+@media screen and (max-height: 450px) {
+    .sidebar {
+        padding-top: 15px;
+    }
+
+    .sidebar a {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 600px) {
+    .movie-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
