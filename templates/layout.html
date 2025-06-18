@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- Load an icon library -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+        <link href="/static/styles.css" rel="stylesheet">
+        <title>MY MOVIE SITE: {% block title %}{% endblock %}</title>
+
+    </head>
+
+    <body>
+        {% if session["user_id"] %}
+        <!-- Sidebar -->
+            <div class="sidebar" id="sidebar" style="display: none;">
+
+                <a href="/" class="w3-bar-item w3-button">
+                    <i class="fa fa-home" style="margin-right:10px;"></i>Home
+                </a>
+                <a href="/logout" class="w3-bar-item w3-button"><i class="fa fa-sign-in"></i>Logout</a>
+                <a href="/profile" class="w3-bar-item w3-button"><i class="fa fa-user"></i>Profile</a>
+            </div>
+        {% else %}
+        <!-- Sidebar -->
+            <div class="sidebar" id="sidebar" style="display: none;">
+
+                <a href="/" class="w3-bar-item w3-button">
+                    <i class="fa fa-home" style="margin-right:10px;"></i>Home
+                </a>
+                <a href="/login" class="w3-bar-item w3-button"><i class="fa fa-sign-in"></i>Login</a>
+                <a href="/signup" class="w3-bar-item w3-button"><i class="fa fa-key"></i>Signup</a>
+            </div>
+        {% endif %}
+        <main>
+            {% block main %}{% endblock %}
+        </main>
+
+    </body>
+
+</html>

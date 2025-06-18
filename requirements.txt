@@ -1,0 +1,9 @@
+os
+re
+cs50
+Flask
+Flask-Session
+pytz
+requests
+werkzeug.utils
+werkzeug.security

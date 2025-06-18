@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sign Up
+{% endblock %}
+
+{% block main %}
+    <form action="/signup" method="post">
+        <div>
+            <input class="centered-input" name="username" autocomplete="off" autofocus placeholder="Username" type="text">
+        </div>
+        <div>
+            <input class="centered-input" name="password" autocomplete="off" placeholder="Password" type="password">
+        </div>
+        <div>
+            <input class="centered-input" name="confirmation" autocomplete="off" placeholder="Confirmation" type="password">
+        </div>
+        <button class="centered-button" type="submit">Sign Up</button>
+    </form>
+{% endblock %}

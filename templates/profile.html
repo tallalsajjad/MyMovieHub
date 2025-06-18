@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block title %}Profile{% endblock %}
+
+{% block main %}
+    <div class="profile-container_2">
+    <!-- Sidebar -->
+        <div class="sidebar_2">
+            {% if profile_pic %}
+                <img src="{{ url_for('static', filename='profile_pics/' + profile_pic) }}" class="avatar" alt="Profile Photo">
+            {% else %}
+                <img src="{{ url_for('static', filename='default-avatar.png') }}" class="avatar" alt="Default Avatar">
+            {% endif %}
+            <h2>{{ display_name }}</h2>
+            <div class="upload-form">
+                <form action="/upload_photo" method="post" enctype="multipart/form-data">
+                    <label for="file-upload" class="custom-file-upload">
+                        Choose Photo 📁
+                    </label>
+                    <input id="file-upload" type="file" name="photo" accept="image/*" required>
+                    <button type="submit" class="save-btn">Upload Photo</button>
+                </form>
+            </div>
+            <h2>{{ name }}</h2>
+        <!-- Edit button -->
+            <button onclick="toggleEdit()" class="edit-btn">Edit Profile</button>
+
+        <!-- Hidden edit form -->
+            <div id="edit-section" class="edit-section">
+                <form action="/update_profile" method="POST">
+                    <label>Display Name:</label>
+                    <input type="text" name="display_name" placeholder="Enter display name">
+
+                    <label>Username:</label>
+                    <input type="text" name="username" placeholder="New username">
+                    <label>Old Password:</label>
+                    <input type="password" name="old-password" placeholder="old Password">
+
+                    <label>New Password:</label>
+                    <input type="password" name="password" placeholder="New password">
+
+                    <label>Confirm Password:</label>
+                    <input type="password" name="confirm-password" placeholder="New password">
+
+                    <button type="submit" class="centered-button">Save Changes</button>
+                </form>
+            </div>
+        </div>
+    <!-- 📌 Always-visible Upload Button -->
+        <div class="main-content_2">
+            <a href="/upload_movie" class="upload-button">+ Upload Movie</a>
+            <h1 style="color:red;">My Uploads</h1>
+            {% if uploads %}
+                <ul class="upload-list">
+                    {% for upload in uploads %}
+                        <li class="upload-item">
+                            <h3 style="color:green;">{{ upload.title }}</h3>
+                            <h4 class="col"><b>Release Date:</b> {{ upload.release_date }}</h4>
+                            <h4 class="col"><b>Time Stamp:</b> {{ upload.uploaded_at }}</h4>
+                            <p class="col"><b>Story:</b> {{ upload.story }}</p>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No uploads yet.</p>
+            {% endif %}
+        </div>
+    <!-- Toggle JavaScript -->
+        <script>
+            function toggleEdit() {
+                const section = document.getElementById("edit-section");
+                section.classList.toggle("visible");
+            }
+        </script>
+{% endblock %}

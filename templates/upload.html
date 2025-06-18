@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}Upload Movie{% endblock %}
+
+{% block main %}
+    <div class="upload-form-container">
+        <h2>Upload Movie</h2>
+        <form action="/upload_movie" method="post" enctype="multipart/form-data">
+            <label for="title">Title:</label>
+            <input name="title" type="text" required>
+
+            <label for="release_date">Release Date:</label>
+            <input name="release_date" type="date" required>
+
+            <label for="description">Description:</label>
+            <textarea name="description" required></textarea>
+
+            <label for="story">Story:</label>
+            <textarea name="story" required></textarea>
+
+            <div class="custom-upload-wrapper">
+                <label style="width:25%;" for="preview-upload" class="custom-file-upload">Preview</label>
+                <input id="preview-upload" name="preview_img" type="file" accept="image/*" required>
+            </div>
+
+            <div class="custom-upload-wrapper">
+                <label style="width:25%;" for="poster-upload" class="custom-file-upload">Alt MOVIE</label>
+                <input id="poster-upload" name="poster" type="file" accept="image/*" required>
+            </div>
+
+            <label for="drive_link">Google Drive Link:</label>
+            <input name="drive_link" type="url" required>
+
+            <button type="submit">Upload Movie</button>
+        </form>
+    </div>
+{% endblock %}

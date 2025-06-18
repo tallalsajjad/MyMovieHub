@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}Search Results{% endblock %}
+
+{% block main %}
+    <div class="topbar">
+        <button class="menu-btn" onclick="openSidebar()">☰</button>
+        <div class="topbar-content">
+            <h2><b>My Movie Site</b></h2>
+            <form action="/search" method="get" class="search-container">
+                <input class="search-bar" type="text" autofocus autocomplete="off" placeholder="Search For Movies" name="q" style="width:60%; max-width:400px;">
+            </form>
+        </div>
+    </div>
+
+    {% if movies %}
+        <div class="main">
+            <h1 class="fon">Search Results for "{{ query }}"</h1>
+            <div style="text-align: center;">
+                {% for movie in movies %}
+                    <div class="preview-box">
+                        <img src="{{ url_for('static', filename='preview_img/' + movie.preview_img) }}" alt="Poster" class="poster-img">
+                        <div><a href="/movie/{{ movie.movie_id }}">{{ movie.title }}</a></div>
+                        <label>Release Date:</label>
+                        <div class="preview-desc">{{ movie.release_date }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% else %}
+        <div class="main">
+            <h1 class="fon">Search Results.</h1>
+            <h2 style="color:red; text-align:center;"><i>No movies found for "{{ query }}"</i></h2>
+        </div>
+    {% endif %}
+
+    <script>
+        function openSidebar() {
+            const sidebar = document.getElementById("sidebar");
+            sidebar.style.display = (sidebar.style.display === "block") ? "none" : "block";
+        }
+    </script>
+{% endblock %}

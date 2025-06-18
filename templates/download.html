@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ movie.title }}
+{% endblock %}
+
+{% block main %}
+    <div class="main-content_2">
+        <h1 style="color:green; text-align:center;">{{ movie.title }}</h1>
+        <div class="movie-container">
+            <img src="{{ url_for('static', filename='preview_img/' + movie.preview_img) }}" alt="Poster" style="width: 380px; height: 300%px; border-radius: 10px; box-shadow: 0 0 8px rgba(0,0,0,0.2); margin-bottom: 20px;">
+            <div class="movie-description">
+                <h3 class="col"><b>Description:</b></h3>
+                <p>{{ movie.description }}</p>
+                <h3 class="col"><b>Release Date:</b> {{ movie.release_date }}</h3>
+                <h3 style="color:red;"><b>Movie Preview</b></h3>
+                <img src="{{ url_for('static', filename='movie_posters/' + movie.poster_filename) }}" alt="Poster" style="width: 615px; height: 300%px; border-radius: 10px; box-shadow: 0 0 8px rgba(0,0,0,0.2); margin-bottom: 20px;">
+
+            </div>
+        </div>
+
+        <h2 style="color:#660066;"><i>Story</i></h2>
+        <p class="col">{{ movie.story }}</p>
+
+        <a href="{{ movie.drive_link }}" target="_blank">
+            <button class="centered-button">Download from Google Drive</button>
+        </a>
+    </div>
+{% endblock %}
